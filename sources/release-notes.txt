@@ -90,3 +90,10 @@
 > Adobe Reader auf Version 2100520048 aktualisiert
 > Adobe Reader Setup automatisch auf neuste Version umgestellt
 > Umlaute entfernt
+
+###############
+# 2022.10.20.0 #
+###############
+> 7-Zip auf Version 22.01 aktualisiert
+> Adobe Reader auf Version 2200320258 aktualisiert
+> SIW aktualisiert
