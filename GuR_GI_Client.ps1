@@ -58,7 +58,9 @@ function stdInstall($Silent) {
     Write-Host "Firefox Installation abgeschlossen." -foregroundColor green
     
     Write-Host "Installiere 7-Zip..."
-    & "$PSScriptRoot\filedepot\7z2201-x64.exe" /S -Wait
+    Set-Location -Path $PSScriptRoot\filedepot\
+    $sevenzip_version  = Get-ChildItem -Filter *7z*.exe | Select-Object -last 1 | Get-ChildItem -Name
+    & "$PSScriptRoot\filedepot\$sevenzip_version" /S
     Start-Sleep -s 3
     Write-Host "7-Zip Installation abgeschlossen." -foregroundColor green
     
