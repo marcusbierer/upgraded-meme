@@ -144,6 +144,7 @@ If(!(test-path "$PSScriptRoot\sources\version.txt")) {checkForUpdates}
 else {
 #checkForUpdates
 
+genCustom
 
 $n=1
 Import-Module BitsTransfer
