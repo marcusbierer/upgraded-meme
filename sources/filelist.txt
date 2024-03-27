@@ -1,7 +1,7 @@
-https://www.7-zip.org/a/7z2201-x64.exe
+https://7-zip.org/a/7z2301-x64.exe
 https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=de
-https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/2200320258/AcroRdrDC2200320258_de_DE.exe
-https://download.anydesk.com/AnyDesk.exe
+https://ardownload2.adobe.com/pub/adobe/reader/win/AcrobatDC/2400120615/AcroRdrDC2400120615_de_DE.exe
 https://gurts.de/files/teamviewer_quicksupport.exe
 https://static.gur.de/GIScripts/filedepot/SIWPortable.zip
 https://static.gur.de/GIScripts/filedepot/ODT.exe
+https://gw42.pcvisit.de/v1/hosted/jumplink?func=download&productrole=guestSetup&gateway=lb3.pcvisit.de&companyid=9734145534

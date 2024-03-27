@@ -86,12 +86,15 @@ function toolsCopy($Silent) {
     {
           New-Item -ItemType Directory -Force -Path "C:\GuR\" | out-null
     }
+    #Auslesen des pcvisit-Dateinamens
+    $pcvisit  = Get-ChildItem "$PSScriptRoot\filedepot" -Filter *9734145534*.exe | Select-Object -last 1 | Get-ChildItem -Name
+
     Copy-Item "$PSScriptRoot\filedepot\teamviewer_quicksupport.exe" -Destination "C:\GuR\teamviewer.exe"
-    Copy-Item "$PSScriptRoot\filedepot\AnyDesk.exe" -Destination "C:\GuR\anydesk.exe"
+    Copy-Item "$PSScriptRoot\filedepot\$pcvisit" -Destination "C:\GuR\pcvisit_gur.exe"
 
     $WshShell = New-Object -comObject WScript.Shell
-    $Shortcut = $WshShell.CreateShortcut("C:\Users\Public\Desktop\GuR AnyDesk.lnk")
-    $Shortcut.TargetPath = "C:\GuR\anydesk.exe"
+    $Shortcut = $WshShell.CreateShortcut("C:\Users\Public\Desktop\GuR pcvisit.lnk")
+    $Shortcut.TargetPath = "C:\GuR\pcvisit_gur.exe"
     $Shortcut.Save()
 
     $WshShell = New-Object -comObject WScript.Shell
@@ -161,7 +164,7 @@ function GuRGIMenue
 	Write-Host "   7-Zip, Firefox, Adobe Reader"
 	Write-Host 
 	Write-Host "2: Werkzeuge kopieren"
-	Write-Host "   Copy TeamViewer, AnyDesk"
+	Write-Host "   Copy TeamViewer, pcvisit"
 	Write-Host 
 	Write-Host "3: Reg-Keys einspielen"
 	Write-Host "   Microsoft-Update aktivieren, RDP aktivieren, Disable Standby"
