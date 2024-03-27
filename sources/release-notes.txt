@@ -97,3 +97,11 @@
 > 7-Zip auf Version 22.01 aktualisiert
 > Adobe Reader auf Version 2200320258 aktualisiert
 > SIW aktualisiert
+
+###############
+# 2024.03.27.0 #
+###############
+> AnyDesk entfernt
+> Adobe Reader auf Version 2400120615 aktualisiert
+> pcvisit eingefügt
+> Adobe-Download-Link im Backbone gesichert
