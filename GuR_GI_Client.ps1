@@ -37,7 +37,7 @@ function updateFiles {
     Set-Location -Path $PSScriptRoot\filedepot\
     & "$PSScriptRoot\filedepot\wget.exe" -nc --restrict-file-names=nocontrol --content-disposition -i $PSScriptRoot\sources\filelist.txt
 	$pcvisit  = Get-ChildItem -Filter *9734145534*.exe | Select-Object -last 1 | Get-ChildItem -Name
-    Rename-Item -Path "$pcvisit" -NewName "pcvisit_gur.exe"
+    Move-Item -Path $pcvisit -Destination "pcvisit_gur.exe" -Force
 	Set-Location -Path $PSScriptRoot\custom\
 	& "$PSScriptRoot\filedepot\wget.exe" -nc --restrict-file-names=nocontrol --content-disposition -i $PSScriptRoot\custom_urls.txt
     Set-Location -Path $PSScriptRoot\sources\PSFiles\
