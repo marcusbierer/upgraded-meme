@@ -37,12 +37,13 @@ function updateFiles {
     Set-Location -Path $PSScriptRoot\filedepot\
     & "$PSScriptRoot\filedepot\wget.exe" -nc --restrict-file-names=nocontrol --content-disposition -i $PSScriptRoot\sources\filelist.txt
 	$pcvisit  = Get-ChildItem -Filter *9734145534*.exe | Select-Object -last 1 | Get-ChildItem -Name
+    Rename-Item -Path "$pcvisit" -NewName "pcvisit_gur.exe"
 	Set-Location -Path $PSScriptRoot\custom\
 	& "$PSScriptRoot\filedepot\wget.exe" -nc --restrict-file-names=nocontrol --content-disposition -i $PSScriptRoot\custom_urls.txt
     Set-Location -Path $PSScriptRoot\sources\PSFiles\
 	& "$PSScriptRoot\filedepot\wget.exe" --recursive --no-parent -nd -R "index.html*" -N https://static.gur.de/GIScripts/sources/PSFiles/
     Get-ChildItem -Filter *index* | Remove-Item
-    Rename-Item -Path $PSScriptRoot+"\filedepot\"+$pcvisit -NewName "pcvisit_gur.exe"
+    
     Write-Host "updateFiles done"
 }
 
