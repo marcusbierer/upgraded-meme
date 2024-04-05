@@ -110,3 +110,8 @@
 # 2024.04.05.0 #
 ################
 > Fehlerbehebung pcvisit-Verteilung
+
+################
+# 2024.04.05.1 #
+################
+> Fehlerbehebung SSL-Zertifikats-Check
