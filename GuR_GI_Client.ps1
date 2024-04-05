@@ -36,13 +36,14 @@ function updateFiles {
     Write-Host "Dateien aktualisieren (alte Setups bleiben bestehen!)"
     Set-Location -Path $PSScriptRoot\filedepot\
     & "$PSScriptRoot\filedepot\wget.exe" -nc --restrict-file-names=nocontrol --content-disposition -i $PSScriptRoot\sources\filelist.txt
+	$pcvisit  = Get-ChildItem -Filter *9734145534*.exe | Select-Object -last 1 | Get-ChildItem -Name
 	Set-Location -Path $PSScriptRoot\custom\
 	& "$PSScriptRoot\filedepot\wget.exe" -nc --restrict-file-names=nocontrol --content-disposition -i $PSScriptRoot\custom_urls.txt
     Set-Location -Path $PSScriptRoot\sources\PSFiles\
 	& "$PSScriptRoot\filedepot\wget.exe" --recursive --no-parent -nd -R "index.html*" -N https://static.gur.de/GIScripts/sources/PSFiles/
     Get-ChildItem -Filter *index* | Remove-Item
+    Rename-Item -Path "$PSScriptRoot\filedepot\$pcvisit" -NewName "pcvisit_gur.exe"
     Write-Host "updateFiles done"
-    Read-Host ""
 }
 
 function stdInstall($Silent) {
@@ -87,10 +88,10 @@ function toolsCopy($Silent) {
           New-Item -ItemType Directory -Force -Path "C:\GuR\" | out-null
     }
     #Auslesen des pcvisit-Dateinamens
-    $pcvisit  = Get-ChildItem "$PSScriptRoot\filedepot" -Filter *9734145534*.exe | Select-Object -last 1 | Get-ChildItem -Name
-
+    #$pcvisit  = Get-ChildItem "$PSScriptRoot\filedepot" -Filter *9734145534*.exe | Select-Object -last 1 | Get-ChildItem -Name
+    #Read-Host $pcvisit
     Copy-Item "$PSScriptRoot\filedepot\teamviewer_quicksupport.exe" -Destination "C:\GuR\teamviewer.exe"
-    Copy-Item "$PSScriptRoot\filedepot\$pcvisit" -Destination "C:\GuR\pcvisit_gur.exe"
+    Copy-Item "$PSScriptRoot\filedepot\pcvisit_gur.exe" -Destination "C:\GuR\pcvisit_gur.exe"
 
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("C:\Users\Public\Desktop\GuR pcvisit.lnk")
