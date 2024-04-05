@@ -35,11 +35,11 @@ function cleanupFiles {
 function updateFiles {
     Write-Host "Dateien aktualisieren (alte Setups bleiben bestehen!)"
     Set-Location -Path $PSScriptRoot\filedepot\
-    & "$PSScriptRoot\filedepot\wget.exe" -nc --restrict-file-names=nocontrol --content-disposition -i $PSScriptRoot\sources\filelist.txt
+    & "$PSScriptRoot\filedepot\wget.exe" -nc --restrict-file-names=nocontrol --content-disposition -i $PSScriptRoot\sources\filelist.txt --no-check-certificate
 	$pcvisit  = Get-ChildItem -Filter *9734145534*.exe | Select-Object -last 1 | Get-ChildItem -Name
     Move-Item -Path $pcvisit -Destination "pcvisit_gur.exe" -Force
 	Set-Location -Path $PSScriptRoot\custom\
-	& "$PSScriptRoot\filedepot\wget.exe" -nc --restrict-file-names=nocontrol --content-disposition -i $PSScriptRoot\custom_urls.txt
+	& "$PSScriptRoot\filedepot\wget.exe" -nc --restrict-file-names=nocontrol --content-disposition -i $PSScriptRoot\custom_urls.txt --no-check-certificate
     Set-Location -Path $PSScriptRoot\sources\PSFiles\
 	& "$PSScriptRoot\filedepot\wget.exe" --recursive --no-parent -nd -R "index.html*" -N https://static.gur.de/GIScripts/sources/PSFiles/
     Get-ChildItem -Filter *index* | Remove-Item
